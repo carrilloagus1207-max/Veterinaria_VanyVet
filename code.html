@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VanyVet Clínica Veterinaria</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#752313",
+                        "secondary-container": "#fe8b72",
+                        "outline-variant": "#bdc9c5",
+                        "on-secondary-fixed": "#3e0500",
+                        "tertiary": "#0060ac",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#005396",
+                        "background": "#f8fafa",
+                        "inverse-surface": "#2e3131",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#a4c9ff",
+                        "inverse-primary": "#76d7c4",
+                        "inverse-on-surface": "#eff1f1",
+                        "surface-tint": "#006b5d",
+                        "outline": "#6e7a76",
+                        "on-primary-fixed": "#00201b",
+                        "secondary": "#9e412e",
+                        "surface-dim": "#d8dada",
+                        "on-primary-fixed-variant": "#005046",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "surface-container-highest": "#e1e3e3",
+                        "primary-fixed": "#93f4e0",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e1e3e3",
+                        "error": "#ba1a1a",
+                        "surface": "#f8fafa",
+                        "surface-bright": "#f8fafa",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#005d51",
+                        "primary-fixed-dim": "#76d7c4",
+                        "on-secondary-fixed-variant": "#7e2b19",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#76d7c4",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#a3c8ff",
+                        "secondary-fixed": "#ffdad3",
+                        "surface-container": "#eceeee",
+                        "on-surface-variant": "#3e4946",
+                        "primary": "#006b5d",
+                        "on-tertiary-fixed-variant": "#004883",
+                        "surface-container-high": "#e6e8e9",
+                        "surface-container-low": "#f2f4f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "sm": "16px",
+                        "xl": "64px",
+                        "container-padding": "20px",
+                        "md": "24px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Nunito Sans"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "display-lg": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "body-lg": ["Nunito Sans"],
+                        "caption": ["Nunito Sans"],
+                        "label-md": ["Nunito Sans"],
+                        "title-md": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .soft-shadow-1 {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .soft-shadow-2 {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .btn-press {
+            box-shadow: 0 2px 0 0 theme('colors.on-secondary-container');
+            transition: all 0.1s ease;
+        }
+        .btn-press:active {
+            box-shadow: 0 0 0 0 theme('colors.on-secondary-container');
+            transform: translateY(2px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen pt-20">
+<!-- Header (TopAppBar) -->
+<header class="bg-surface/80 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 flex justify-between items-center px-container-padding max-w-7xl mx-auto h-20 transition-all duration-300" id="main-header">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-display-lg text-[24px] leading-[32px] md:text-display-lg text-primary tracking-tight font-bold">VanyVet</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-secondary font-bold font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#inicio">Inicio</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#servicios">Servicios</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#nosotros">Nosotros</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#galeria">Pacientes</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#contacto">Contacto</a>
+</nav>
+<div class="flex items-center gap-sm">
+<a class="hidden md:flex items-center justify-center bg-secondary text-on-secondary px-sm py-xs rounded-full font-label-md text-label-md btn-press hover:bg-on-secondary-container transition-colors" href="#contacto">
+<span class="material-symbols-outlined mr-xs text-[18px]">calendar_month</span>
+                Agenda tu hora
+            </a>
+<button aria-label="Menu" class="md:hidden text-primary p-xs active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="px-container-padding py-xl max-w-7xl mx-auto relative overflow-hidden" id="inicio">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-primary-container/20 rounded-l-[100px] -z-10 blur-3xl"></div>
+<div class="flex flex-col md:flex-row items-center gap-xl">
+<div class="flex-1 space-y-md z-10">
+<div class="inline-flex items-center gap-xs bg-surface-container py-1 px-3 rounded-full mb-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-caption text-caption text-on-surface-variant">Atención de urgencias disponible</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-on-surface text-balance">
+                        Cuidado profesional y con amor para tu <span class="text-primary relative inline-block">mejor amigo <span class="material-symbols-outlined absolute -top-4 -right-6 text-secondary text-[24px] rotate-12" style="font-variation-settings: 'FILL' 1;">pets</span></span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Clínica veterinaria integral en Maipú. Ofrecemos medicina preventiva, diagnósticos precisos y un trato empático para asegurar el bienestar de tu mascota.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-sm pt-sm">
+<a class="flex items-center justify-center bg-secondary text-on-secondary px-md py-3 rounded-full font-label-md text-label-md btn-press hover:bg-on-secondary-container transition-colors w-full sm:w-auto" href="#contacto">
+<span class="material-symbols-outlined mr-xs text-[20px]">calendar_month</span>
+                            Agenda tu hora
+                        </a>
+<a class="flex items-center justify-center bg-surface-container-high text-on-surface px-md py-3 rounded-full font-label-md text-label-md hover:bg-surface-container-highest transition-colors w-full sm:w-auto border border-outline-variant/30" href="#">
+<span class="material-symbols-outlined mr-xs text-[20px] text-[#25D366]">forum</span>
+                            WhatsApp
+                        </a>
+</div>
+<!-- Trust Indicators -->
+<div class="flex flex-wrap gap-md pt-lg border-t border-surface-container-highest">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary bg-primary-container p-1 rounded-full text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-caption text-caption text-on-surface-variant">+10 años de experiencia</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary bg-primary-container p-1 rounded-full text-[16px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-caption text-caption text-on-surface-variant">Equipo certificado</span>
+</div>
+</div>
+</div>
+<div class="flex-1 relative w-full aspect-square md:aspect-[4/3] rounded-[40px] overflow-hidden soft-shadow-2">
+<img class="w-full h-full object-cover" data-alt="A bright, modern veterinary clinic room with high-key soft lighting. A compassionate female veterinarian in a clean, crisp teal uniform is gently examining a happy, healthy golden retriever dog on a pristine white examination table. The aesthetic is clean, minimalist, and deeply reassuring, utilizing a soft turquoise and white color palette to evoke a calming medical environment. The scene is shot with a shallow depth of field, focusing on the affectionate interaction between the vet and the dog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7hW6apSUer81g-2MLQveVKwZKaBBDUiP_63Rc3PRG6rsoJJxAiUxJsh7QN2xv9ugs3inZ8OqMyEJtYaFRy13fHNQQMH8X4EwM_ns4IOUA6l9fYJlfbNpwd_EmIM9Enod9wRzqA04wwPSHKD2vmSZ9_4JHUgRNhQsTGkum5VMNjtNctRqeSQxNY3nDmGcUW9X4mCOngPYDJeByhqmTrR1CYcKSaExag6Qwo5Hw7vrokKmnJBQqoTx_OIK8m6lBPmiu1vAhDXc2TDfK"/>
+<!-- Floating Badge -->
+<div class="absolute bottom-md right-md bg-surface/90 backdrop-blur-sm p-sm rounded-2xl soft-shadow-2 flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface leading-tight">4.9/5</p>
+<p class="font-caption text-caption text-on-surface-variant">Calificación de clientes</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="bg-surface-container-low py-xl px-container-padding" id="servicios">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-xs">Nuestros Servicios</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Cuidado integral para cada etapa de la vida de tu mascota.</p>
+</div>
+<!-- Bento Grid for Services -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Main Service 1 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 md:col-span-2 flex flex-col justify-between group overflow-hidden relative">
+<div class="absolute right-0 top-0 w-32 h-32 bg-primary-container/30 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start mb-lg">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]">stethoscope</span>
+</div>
+<span class="bg-secondary/10 text-secondary font-caption text-caption px-3 py-1 rounded-full">Recomendado</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Consulta General</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">Chequeos de rutina, diagnósticos preventivos y evaluación general de salud.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">
+                                Agendar consulta <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/50 flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-tertiary-container text-[24px]">vaccines</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Vacunación</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Esquemas completos para perros y gatos.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Agendar</a>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="bg-secondary-fixed rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface/50 flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-secondary text-[24px]">emergency</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-secondary-container mb-xs">Urgencias</h3>
+<p class="font-body-md text-body-md text-on-secondary-container/80 mb-sm line-clamp-2">Atención prioritaria para casos críticos.</p>
+<a class="inline-flex items-center text-secondary font-label-md text-label-md hover:text-on-secondary-container transition-colors" href="#">Llamar ahora</a>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-variant flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">content_cut</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Peluquería</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Baños y cortes adaptados a cada raza.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Agendar</a>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-primary-container/30 flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-[24px]">biotech</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Exámenes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Laboratorio clínico e imágenes.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Agendar</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (WhatsApp) -->
+<a aria-label="Contactar por WhatsApp" class="fixed bottom-lg right-lg bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center soft-shadow-2 hover:scale-105 transition-transform z-40" href="#">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">forum</span>
+</a>
+<!-- Footer -->
+<footer class="bg-surface-container-highest py-xl px-container-padding flex flex-col md:flex-row justify-between gap-lg mt-xl rounded-t-3xl max-w-7xl mx-auto">
+<div class="flex-1 space-y-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">VanyVet</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                Clínica Veterinaria Integral en Maipú. Cuidado profesional y empático para tu mejor amigo.
+            </p>
+<div class="flex gap-sm pt-xs">
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow-1" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow-1" href="#">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+</a>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-md">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-sm">Enlaces Rápidos</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#inicio">Inicio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#servicios">Servicios</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#nosotros">Nosotros</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#galeria">Pacientes</a>
+</nav>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-sm">Contacto</h4>
+<nav class="flex flex-col gap-xs">
+<p class="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
+<span class="material-symbols-outlined text-[18px] mt-1 text-primary">location_on</span>
+                        Portales 1359, local 11, Maipú
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">call</span>
+                        +56 9 1234 5678
+                    </p>
+</nav>
+</div>
+</div>
+<div class="w-full border-t border-outline-variant/30 mt-md pt-md text-center md:col-span-2">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">
+                © 2026 VanyVet Clínica Veterinaria. Todos los derechos reservados.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple header scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md', 'bg-surface/95');
+                header.classList.remove('shadow-sm', 'bg-surface/80');
+            } else {
+                header.classList.add('shadow-sm', 'bg-surface/80');
+                header.classList.remove('shadow-md', 'bg-surface/95');
+            }
+        });
+    </script>
+</body></html>
