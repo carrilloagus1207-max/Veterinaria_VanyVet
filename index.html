@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VanyVet Clínica Veterinaria</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#752313",
+                        "secondary-container": "#fe8b72",
+                        "outline-variant": "#bdc9c5",
+                        "on-secondary-fixed": "#3e0500",
+                        "tertiary": "#0060ac",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#005396",
+                        "background": "#f8fafa",
+                        "inverse-surface": "#2e3131",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#a4c9ff",
+                        "inverse-primary": "#76d7c4",
+                        "inverse-on-surface": "#eff1f1",
+                        "surface-tint": "#006b5d",
+                        "outline": "#6e7a76",
+                        "on-primary-fixed": "#00201b",
+                        "secondary": "#9e412e",
+                        "surface-dim": "#d8dada",
+                        "on-primary-fixed-variant": "#005046",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "surface-container-highest": "#e1e3e3",
+                        "primary-fixed": "#93f4e0",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e1e3e3",
+                        "error": "#ba1a1a",
+                        "surface": "#f8fafa",
+                        "surface-bright": "#f8fafa",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#005d51",
+                        "primary-fixed-dim": "#76d7c4",
+                        "on-secondary-fixed-variant": "#7e2b19",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#76d7c4",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#a3c8ff",
+                        "secondary-fixed": "#ffdad3",
+                        "surface-container": "#eceeee",
+                        "on-surface-variant": "#3e4946",
+                        "primary": "#006b5d",
+                        "on-tertiary-fixed-variant": "#004883",
+                        "surface-container-high": "#e6e8e9",
+                        "surface-container-low": "#f2f4f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "sm": "16px",
+                        "xl": "64px",
+                        "container-padding": "20px",
+                        "md": "24px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Nunito Sans"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "display-lg": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "body-lg": ["Nunito Sans"],
+                        "caption": ["Nunito Sans"],
+                        "label-md": ["Nunito Sans"],
+                        "title-md": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .soft-shadow-1 {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .soft-shadow-2 {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .btn-press {
+            box-shadow: 0 2px 0 0 theme('colors.on-secondary-container');
+            transition: all 0.1s ease;
+        }
+        .btn-press:active {
+            box-shadow: 0 0 0 0 theme('colors.on-secondary-container');
+            transform: translateY(2px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen pt-20">
+<!-- Header (TopAppBar) -->
+<header class="bg-surface/80 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 flex justify-between items-center px-container-padding max-w-7xl mx-auto h-20 transition-all duration-300" id="main-header">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-display-lg text-[24px] leading-[32px] md:text-display-lg text-primary tracking-tight font-bold">VanyVet</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-secondary font-bold font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#inicio">Inicio</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#servicios">Servicios</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#nosotros">Nosotros</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#galeria">Pacientes</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#contacto">Contacto</a>
+</nav>
+<div class="flex items-center gap-sm">
+<a class="hidden md:flex items-center justify-center bg-secondary text-on-secondary px-sm py-xs rounded-full font-label-md text-label-md btn-press hover:bg-on-secondary-container transition-colors" href="#contacto">
+<span class="material-symbols-outlined mr-xs text-[18px]">calendar_month</span>
+                Agenda tu hora
+            </a>
+<button aria-label="Menu" class="md:hidden text-primary p-xs active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="px-container-padding py-xl max-w-7xl mx-auto relative overflow-hidden" id="inicio">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-primary-container/20 rounded-l-[100px] -z-10 blur-3xl"></div>
+<div class="flex flex-col md:flex-row items-center gap-xl">
+<div class="flex-1 space-y-md z-10">
+<div class="inline-flex items-center gap-xs bg-surface-container py-1 px-3 rounded-full mb-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-caption text-caption text-on-surface-variant">Atención de urgencias disponible</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-on-surface text-balance">
+                        Cuidado profesional y con amor para tu <span class="text-primary relative inline-block">mejor amigo <span class="material-symbols-outlined absolute -top-4 -right-6 text-secondary text-[24px] rotate-12" style="font-variation-settings: 'FILL' 1;">pets</span></span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Clínica veterinaria integral en Maipú. Ofrecemos medicina preventiva, diagnósticos precisos y un trato empático para asegurar el bienestar de tu mascota.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-sm pt-sm">
+<a class="flex items-center justify-center bg-secondary text-on-secondary px-md py-3 rounded-full font-label-md text-label-md btn-press hover:bg-on-secondary-container transition-colors w-full sm:w-auto" href="#contacto">
+<span class="material-symbols-outlined mr-xs text-[20px]">calendar_month</span>
+                            Agenda tu hora
+                        </a>
+<a class="flex items-center justify-center bg-surface-container-high text-on-surface px-md py-3 rounded-full font-label-md text-label-md hover:bg-surface-container-highest transition-colors w-full sm:w-auto border border-outline-variant/30" href="#">
+<span class="material-symbols-outlined mr-xs text-[20px] text-[#25D366]">forum</span>
+                            WhatsApp
+                        </a>
+</div>
+<!-- Trust Indicators -->
+<div class="flex flex-wrap gap-md pt-lg border-t border-surface-container-highest">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary bg-primary-container p-1 rounded-full text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-caption text-caption text-on-surface-variant">+10 años de experiencia</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary bg-primary-container p-1 rounded-full text-[16px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-caption text-caption text-on-surface-variant">Equipo certificado</span>
+</div>
+</div>
+</div>
+<div class="flex-1 relative w-full aspect-square md:aspect-[4/3] rounded-[40px] overflow-hidden soft-shadow-2">
+<img class="w-full h-full object-cover" data-alt="A bright, modern veterinary clinic room with high-key soft lighting. A compassionate female veterinarian in a clean, crisp teal uniform is gently examining a happy, healthy golden retriever dog on a pristine white examination table. The aesthetic is clean, minimalist, and deeply reassuring, utilizing a soft turquoise and white color palette to evoke a calming medical environment. The scene is shot with a shallow depth of field, focusing on the affectionate interaction between the vet and the dog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7hW6apSUer81g-2MLQveVKwZKaBBDUiP_63Rc3PRG6rsoJJxAiUxJsh7QN2xv9ugs3inZ8OqMyEJtYaFRy13fHNQQMH8X4EwM_ns4IOUA6l9fYJlfbNpwd_EmIM9Enod9wRzqA04wwPSHKD2vmSZ9_4JHUgRNhQsTGkum5VMNjtNctRqeSQxNY3nDmGcUW9X4mCOngPYDJeByhqmTrR1CYcKSaExag6Qwo5Hw7vrokKmnJBQqoTx_OIK8m6lBPmiu1vAhDXc2TDfK"/>
+<!-- Floating Badge -->
+<div class="absolute bottom-md right-md bg-surface/90 backdrop-blur-sm p-sm rounded-2xl soft-shadow-2 flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface leading-tight">4.9/5</p>
+<p class="font-caption text-caption text-on-surface-variant">Calificación de clientes</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="bg-surface-container-low py-xl px-container-padding" id="servicios">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-xs">Nuestros Servicios</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Cuidado integral para cada etapa de la vida de tu mascota.</p>
+</div>
+<!-- Bento Grid for Services -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Main Service 1 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 md:col-span-2 flex flex-col justify-between group overflow-hidden relative">
+<div class="absolute right-0 top-0 w-32 h-32 bg-primary-container/30 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start mb-lg">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]">stethoscope</span>
+</div>
+<span class="bg-secondary/10 text-secondary font-caption text-caption px-3 py-1 rounded-full">Recomendado</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Consulta General</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">Chequeos de rutina, diagnósticos preventivos y evaluación general de salud.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">
+                                Agendar consulta <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/50 flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-tertiary-container text-[24px]">vaccines</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Vacunación</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Esquemas completos para perros y gatos.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Agendar</a>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="bg-secondary-fixed rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface/50 flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-secondary text-[24px]">emergency</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-secondary-container mb-xs">Urgencias</h3>
+<p class="font-body-md text-body-md text-on-secondary-container/80 mb-sm line-clamp-2">Atención prioritaria para casos críticos.</p>
+<a class="inline-flex items-center text-secondary font-label-md text-label-md hover:text-on-secondary-container transition-colors" href="#">Llamar ahora</a>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-variant flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">content_cut</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Peluquería</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Baños y cortes adaptados a cada raza.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Agendar</a>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="bg-surface rounded-3xl p-md soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-xl bg-primary-container/30 flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-[24px]">biotech</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Exámenes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Laboratorio clínico e imágenes.</p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Agendar</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Nosotros Section -->
+<section class="py-xl px-container-padding max-w-7xl mx-auto" id="nosotros">
+  <div class="flex flex-col md:flex-row items-center gap-xl">
+    <div class="flex-1 space-y-md">
+      <div class="inline-flex items-center gap-xs bg-primary/10 py-1 px-3 rounded-full mb-xs">
+        <span class="material-symbols-outlined text-primary text-[18px]">info</span>
+        <span class="font-caption text-caption text-primary">Quiénes Somos</span>
+      </div>
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">
+        Tu compañero de confianza en el cuidado de tu mascota
+      </h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant text-balance">
+        En VanyVet, combinamos la máxima precisión médica con un trato empático y cercano. Entendemos que tu mascota es un miembro de tu familia y nos esforzamos por ofrecer un ambiente relajado y seguro para reducir su ansiedad.
+      </p>
+      
+      <!-- Values List -->
+      <div class="space-y-sm pt-xs">
+        <div class="flex items-start gap-sm">
+          <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary text-[18px]">favorite</span>
+          </div>
+          <div>
+            <h4 class="font-title-md text-title-md text-on-surface text-[18px]">Cuidado Empático</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">Trato cariñoso y paciencia con cada paciente para que se sientan como en casa.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-sm">
+          <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary text-[18px]">handyman</span>
+          </div>
+          <div>
+            <h4 class="font-title-md text-title-md text-on-surface text-[18px]">Equipamiento Moderno</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">Tecnología avanzada para diagnósticos rápidos y tratamientos de alta precisión.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Image/Stats Column -->
+    <div class="flex-1 w-full grid grid-cols-2 gap-sm">
+      <div class="bg-surface-container-lowest p-md rounded-3xl soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between aspect-square">
+        <span class="material-symbols-outlined text-primary text-[36px] bg-primary/10 w-14 h-14 rounded-2xl flex items-center justify-center">workspace_premium</span>
+        <div>
+          <h3 class="font-display-lg text-[32px] text-primary leading-tight font-bold">+10</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Años Cuidando Mascotas</p>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-md rounded-3xl soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between aspect-square mt-md md:mt-lg">
+        <span class="material-symbols-outlined text-secondary text-[36px] bg-secondary/10 w-14 h-14 rounded-2xl flex items-center justify-center">groups</span>
+        <div>
+          <h3 class="font-display-lg text-[32px] text-secondary leading-tight font-bold">12+</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Especialistas Certificados</p>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-md rounded-3xl soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between aspect-square -mt-md md:-mt-lg">
+        <span class="material-symbols-outlined text-tertiary text-[36px] bg-tertiary/10 w-14 h-14 rounded-2xl flex items-center justify-center">sentiment_satisfied</span>
+        <div>
+          <h3 class="font-display-lg text-[32px] text-tertiary leading-tight font-bold">99%</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Clientes Felices</p>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-md rounded-3xl soft-shadow-1 hover:soft-shadow-2 transition-shadow duration-300 flex flex-col justify-between aspect-square">
+        <span class="material-symbols-outlined text-[#25D366] text-[36px] bg-[#25D366]/10 w-14 h-14 rounded-2xl flex items-center justify-center">schedule</span>
+        <div>
+          <h3 class="font-display-lg text-[32px] text-on-surface leading-tight font-bold">24/7</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Soporte de Urgencias</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pacientes Section -->
+<section class="bg-surface-container-low py-xl px-container-padding" id="galeria">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-xl">
+      <div class="inline-flex items-center gap-xs bg-primary/10 py-1 px-3 rounded-full mb-xs">
+        <span class="material-symbols-outlined text-primary text-[18px]">pets</span>
+        <span class="font-caption text-caption text-primary">Nuestros Pacientes</span>
+      </div>
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-xs">Pacientes Destacados</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+        Conoce a algunos de los amigos que confían en nuestro cuidado y su historial de salud al día.
+      </p>
+    </div>
+    
+    <!-- Grid of Pet Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+      <!-- Pet Card 1 (Bella) -->
+      <div class="bg-surface rounded-[24px] p-md soft-shadow-1 hover:soft-shadow-2 transition-all duration-300 flex flex-col justify-between border border-outline-variant/10">
+        <div>
+          <!-- Avatar and Badges -->
+          <div class="relative w-full aspect-square rounded-2xl overflow-hidden mb-md">
+            <img src="bella.png" alt="Bella" class="w-full h-full object-cover">
+            <span class="absolute top-sm right-sm bg-primary text-on-primary font-caption text-caption px-3 py-1 rounded-full soft-shadow-1">
+              Al día
+            </span>
+          </div>
+          
+          <div class="flex justify-between items-start mb-sm">
+            <div>
+              <h3 class="font-title-md text-title-md text-on-surface">Bella</h3>
+              <p class="font-caption text-caption text-on-surface-variant">Labrador Retriever • 3 años</p>
+            </div>
+            <!-- Category Chip -->
+            <span class="bg-primary/10 text-primary font-caption text-caption px-3 py-1 rounded-full font-bold">
+              Perro
+            </span>
+          </div>
+          
+          <!-- Progressive Disclosure Accordion -->
+          <details class="group border border-outline-variant/30 rounded-xl p-xs bg-surface-container-low transition-colors duration-200 mb-md">
+            <summary class="flex justify-between items-center cursor-pointer list-none select-none font-label-md text-label-md text-on-surface-variant">
+              <span>Historial Médico</span>
+              <span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180 text-[18px]">expand_more</span>
+            </summary>
+            <div class="mt-xs pt-xs border-t border-outline-variant/20 space-y-xs text-sm font-body-md text-on-surface-variant">
+              <div class="flex justify-between items-center">
+                <span>Vacuna Octuple</span>
+                <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Vacuna Antirrábica</span>
+                <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Desparasitación</span>
+                <span class="font-caption text-caption bg-surface-variant px-2 py-0.5 rounded-full">Hace 2 meses</span>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+        <!-- Action Buttons / Iconography -->
+        <div class="flex justify-between items-center pt-xs border-t border-outline-variant/20">
+          <div class="flex gap-xs">
+            <button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" aria-label="Historial de citas">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">medical_information</span>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors" aria-label="Favorito">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </button>
+          </div>
+          <span class="font-caption text-caption text-on-surface-variant">Próximo control: 15 Jul 2026</span>
+        </div>
+      </div>
+      
+      <!-- Pet Card 2 (Max) -->
+      <div class="bg-surface rounded-[24px] p-md soft-shadow-1 hover:soft-shadow-2 transition-all duration-300 flex flex-col justify-between border border-outline-variant/10">
+        <div>
+          <!-- Avatar and Badges -->
+          <div class="relative w-full aspect-square rounded-2xl overflow-hidden mb-md">
+            <img src="max.png" alt="Max" class="w-full h-full object-cover">
+            <span class="absolute top-sm right-sm bg-secondary text-on-secondary font-caption text-caption px-3 py-1 rounded-full soft-shadow-1">
+              Pendiente
+            </span>
+          </div>
+          
+          <div class="flex justify-between items-start mb-sm">
+            <div>
+              <h3 class="font-title-md text-title-md text-on-surface">Max</h3>
+              <p class="font-caption text-caption text-on-surface-variant">Persa Gris • 2 años</p>
+            </div>
+            <!-- Category Chip -->
+            <span class="bg-primary/10 text-primary font-caption text-caption px-3 py-1 rounded-full font-bold">
+              Gato
+            </span>
+          </div>
+          
+          <!-- Progressive Disclosure Accordion -->
+          <details class="group border border-outline-variant/30 rounded-xl p-xs bg-surface-container-low transition-colors duration-200 mb-md">
+            <summary class="flex justify-between items-center cursor-pointer list-none select-none font-label-md text-label-md text-on-surface-variant">
+              <span>Historial Médico</span>
+              <span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180 text-[18px]">expand_more</span>
+            </summary>
+            <div class="mt-xs pt-xs border-t border-outline-variant/20 space-y-xs text-sm font-body-md text-on-surface-variant">
+              <div class="flex justify-between items-center">
+                <span>Triple Felina</span>
+                <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+              </div>
+              <div class="flex justify-between items-center text-secondary">
+                <span>Vacuna Antirrábica</span>
+                <span class="material-symbols-outlined text-secondary text-[16px]">warning</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Desparasitación</span>
+                <span class="font-caption text-caption bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full">Expirada</span>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+        <!-- Action Buttons / Iconography -->
+        <div class="flex justify-between items-center pt-xs border-t border-outline-variant/20">
+          <div class="flex gap-xs">
+            <button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" aria-label="Historial de citas">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">medical_information</span>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors" aria-label="Favorito">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </button>
+          </div>
+          <span class="font-caption text-caption text-secondary font-bold">Próximo control: 25 Jun 2026</span>
+        </div>
+      </div>
+      
+      <!-- Pet Card 3 (Coco) -->
+      <div class="bg-surface rounded-[24px] p-md soft-shadow-1 hover:soft-shadow-2 transition-all duration-300 flex flex-col justify-between border border-outline-variant/10">
+        <div>
+          <!-- Avatar and Badges -->
+          <div class="relative w-full aspect-square rounded-2xl overflow-hidden mb-md">
+            <img src="coco.png" alt="Coco" class="w-full h-full object-cover">
+            <span class="absolute top-sm right-sm bg-tertiary text-on-tertiary font-caption text-caption px-3 py-1 rounded-full soft-shadow-1">
+              Tratamiento
+            </span>
+          </div>
+          
+          <div class="flex justify-between items-start mb-sm">
+            <div>
+              <h3 class="font-title-md text-title-md text-on-surface">Coco</h3>
+              <p class="font-caption text-caption text-on-surface-variant">Conejo Enano • 1 año</p>
+            </div>
+            <!-- Category Chip -->
+            <span class="bg-primary/10 text-primary font-caption text-caption px-3 py-1 rounded-full font-bold">
+              Exótico
+            </span>
+          </div>
+          
+          <!-- Progressive Disclosure Accordion -->
+          <details class="group border border-outline-variant/30 rounded-xl p-xs bg-surface-container-low transition-colors duration-200 mb-md">
+            <summary class="flex justify-between items-center cursor-pointer list-none select-none font-label-md text-label-md text-on-surface-variant">
+              <span>Historial Médico</span>
+              <span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180 text-[18px]">expand_more</span>
+            </summary>
+            <div class="mt-xs pt-xs border-t border-outline-variant/20 space-y-xs text-sm font-body-md text-on-surface-variant">
+              <div class="flex justify-between items-center">
+                <span>Chequeo Dental</span>
+                <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Desparasitación</span>
+                <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Tratamiento Ótico</span>
+                <span class="font-caption text-caption bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full">En Curso</span>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+        <!-- Action Buttons / Iconography -->
+        <div class="flex justify-between items-center pt-xs border-t border-outline-variant/20">
+          <div class="flex gap-xs">
+            <button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" aria-label="Historial de citas">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">medical_information</span>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors" aria-label="Favorito">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </button>
+          </div>
+          <span class="font-caption text-caption text-on-surface-variant">Próximo control: 02 Jul 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto Section -->
+<section class="py-xl px-container-padding max-w-7xl mx-auto" id="contacto">
+  <div class="flex flex-col md:flex-row gap-xl items-stretch">
+    <!-- Info Column -->
+    <div class="flex-1 flex flex-col justify-between space-y-lg">
+      <div class="space-y-md">
+        <div class="inline-flex items-center gap-xs bg-primary/10 py-1 px-3 rounded-full mb-xs">
+          <span class="material-symbols-outlined text-primary text-[18px]">mail</span>
+          <span class="font-caption text-caption text-primary">Contacto</span>
+        </div>
+        <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">
+          Estamos aquí para ayudarte a ti y a tu mascota
+        </h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">
+          Ponte en contacto con nosotros para agendar una cita o resolver tus dudas. Ofrecemos atención dedicada y personalizada.
+        </p>
+      </div>
+      
+      <!-- Details -->
+      <div class="space-y-sm">
+        <div class="flex items-center gap-sm bg-surface-container-low p-sm rounded-2xl">
+          <span class="material-symbols-outlined text-primary bg-primary/10 p-xs rounded-xl text-[24px]">location_on</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-surface">Dirección</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">Portales 1359, local 11, Maipú</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-sm bg-surface-container-low p-sm rounded-2xl">
+          <span class="material-symbols-outlined text-primary bg-primary/10 p-xs rounded-xl text-[24px]">call</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-surface">Teléfono</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">+56 9 1234 5678</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-sm bg-surface-container-low p-sm rounded-2xl">
+          <span class="material-symbols-outlined text-primary bg-primary/10 p-xs rounded-xl text-[24px]">schedule</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-surface">Horario de Atención</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">Lunes a Viernes: 09:00 - 20:00 | Sábado: 09:00 - 14:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Form Column -->
+    <div class="flex-1 bg-surface-container-lowest p-md md:p-lg rounded-3xl soft-shadow-2 border border-outline-variant/10">
+      <h3 class="font-title-md text-title-md text-on-surface mb-md">Agenda tu cita en línea</h3>
+      
+      <form class="space-y-sm" id="booking-form" onsubmit="event.preventDefault(); alert('¡Cita solicitada exitosamente! Nos contactaremos contigo a la brevedad.'); this.reset();">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+          <div>
+            <label for="owner-name" class="block font-label-md text-label-md text-on-surface-variant mb-xs">Nombre del dueño</label>
+            <input type="text" id="owner-name" required placeholder="Ej. Juan Pérez" class="w-full h-12 px-sm rounded-xl border border-outline-variant bg-surface text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200">
+          </div>
+          <div>
+            <label for="pet-name" class="block font-label-md text-label-md text-on-surface-variant mb-xs">Nombre de la mascota</label>
+            <input type="text" id="pet-name" required placeholder="Ej. Bella" class="w-full h-12 px-sm rounded-xl border border-outline-variant bg-surface text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200">
+          </div>
+        </div>
+        
+        <div>
+          <label for="pet-type" class="block font-label-md text-label-md text-on-surface-variant mb-xs">Tipo de mascota</label>
+          <select id="pet-type" required class="w-full h-12 px-sm rounded-xl border border-outline-variant bg-surface text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="perro">Perro</option>
+            <option value="gato">Gato</option>
+            <option value="exotico">Exótico</option>
+          </select>
+        </div>
+        
+        <div>
+          <label for="email" class="block font-label-md text-label-md text-on-surface-variant mb-xs">Correo electrónico</label>
+          <input type="email" id="email" required placeholder="juan@ejemplo.com" class="w-full h-12 px-sm rounded-xl border border-outline-variant bg-surface text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200">
+        </div>
+        
+        <div>
+          <label for="date" class="block font-label-md text-label-md text-on-surface-variant mb-xs">Fecha deseada</label>
+          <input type="date" id="date" required class="w-full h-12 px-sm rounded-xl border border-outline-variant bg-surface text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200">
+        </div>
+        
+        <button type="submit" class="w-full flex items-center justify-center bg-secondary text-on-secondary px-md h-12 rounded-xl font-label-md text-label-md btn-press hover:bg-on-secondary-container transition-colors">
+          <span class="material-symbols-outlined mr-xs text-[20px]">calendar_month</span>
+          Confirmar Agenda
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Mobile Drawer Menu -->
+<div id="mobile-menu" class="fixed inset-0 bg-surface/98 z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-lg">
+  <button id="close-menu-btn" class="absolute top-sm right-sm text-primary p-xs active:scale-95 transition-transform" aria-label="Cerrar menú">
+    <span class="material-symbols-outlined text-[32px]">close</span>
+  </button>
+  <a class="mobile-nav-link text-on-surface-variant font-display-lg text-[24px] font-bold hover:text-secondary transition-colors" href="#inicio">Inicio</a>
+  <a class="mobile-nav-link text-on-surface-variant font-display-lg text-[24px] font-bold hover:text-secondary transition-colors" href="#servicios">Servicios</a>
+  <a class="mobile-nav-link text-on-surface-variant font-display-lg text-[24px] font-bold hover:text-secondary transition-colors" href="#nosotros">Nosotros</a>
+  <a class="mobile-nav-link text-on-surface-variant font-display-lg text-[24px] font-bold hover:text-secondary transition-colors" href="#galeria">Pacientes</a>
+  <a class="mobile-nav-link text-on-surface-variant font-display-lg text-[24px] font-bold hover:text-secondary transition-colors" href="#contacto">Contacto</a>
+  <a class="flex items-center justify-center bg-secondary text-on-secondary px-md py-3 rounded-full font-label-md text-label-md btn-press hover:bg-on-secondary-container transition-colors w-2/3 mt-md" href="#contacto">
+    <span class="material-symbols-outlined mr-xs text-[18px]">calendar_month</span>
+    Agenda tu hora
+  </a>
+</div>
+
+<!-- Floating Action Button (WhatsApp) -->
+<a aria-label="Contactar por WhatsApp" class="fixed bottom-lg right-lg bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center soft-shadow-2 hover:scale-105 transition-transform z-40" href="#">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">forum</span>
+</a>
+<!-- Footer -->
+<footer class="bg-surface-container-highest py-xl px-container-padding flex flex-col md:flex-row justify-between gap-lg mt-xl rounded-t-3xl max-w-7xl mx-auto">
+<div class="flex-1 space-y-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">VanyVet</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                Clínica Veterinaria Integral en Maipú. Cuidado profesional y empático para tu mejor amigo.
+            </p>
+<div class="flex gap-sm pt-xs">
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow-1" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow-1" href="#">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+</a>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-md">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-sm">Enlaces Rápidos</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#inicio">Inicio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#servicios">Servicios</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#nosotros">Nosotros</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-secondary" href="#galeria">Pacientes</a>
+</nav>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-sm">Contacto</h4>
+<nav class="flex flex-col gap-xs">
+<p class="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
+<span class="material-symbols-outlined text-[18px] mt-1 text-primary">location_on</span>
+                        Portales 1359, local 11, Maipú
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">call</span>
+                        +56 9 1234 5678
+                    </p>
+</nav>
+</div>
+</div>
+<div class="w-full border-t border-outline-variant/30 mt-md pt-md text-center md:col-span-2">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">
+                © 2026 VanyVet Clínica Veterinaria. Todos los derechos reservados.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple header scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md', 'bg-surface/95');
+                header.classList.remove('shadow-sm', 'bg-surface/80');
+            } else {
+                header.classList.add('shadow-sm', 'bg-surface/80');
+                header.classList.remove('shadow-md', 'bg-surface/95');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openMenuBtn = document.querySelector('header button[aria-label="Menu"]');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+        }
+
+        openMenuBtn.addEventListener('click', openMobileMenu);
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+    </script>
+</body></html>
